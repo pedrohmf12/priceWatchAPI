@@ -1,5 +1,5 @@
 import { queryObjects } from "v8";
-import { z } from "zod";
+import { object, z } from "zod";
 
 // Schema validation to request
 export const SearchRequestSchema = z.object({

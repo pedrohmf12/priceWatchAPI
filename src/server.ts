@@ -1,60 +1,26 @@
 import Fastify from "fastify";
-import { SearchRequestSchema, SearchResponse } from "./types/search";
-
-const PORT = 3000;
+import { searchRoutes } from "./routes/search.routes.js";
 
 const server = Fastify({
   logger: true,
 });
 
+// Health check
 server.get("/health", async () => {
   return { status: "ok" };
 });
 
-server.post<{ Body: unknown }>("/v1/search", async (request, response) => {
-  // Validate the request body
-  const validation = SearchRequestSchema.safeParse(request.body);
+// Registra as rotas
+await server.register(searchRoutes);
 
-  if (!validation.success) {
-    return response.status(400).send({
-      error: "Invalid data",
-      details: validation.error.message,
-    });
-  }
-
-  const { query, stores } = validation.data;
-
-  // At now, return mocked data
-  const mockResults: SearchResponse = {
-    query,
-    results: [
-      {
-        store: "mercadolivre",
-        title: `${query} - Produto de exemplo`,
-        price: 1299.99,
-        shipping: 0,
-        url: "https://mercadolivre.com.br/exemplo",
-      },
-      {
-        store: "mercadolivre",
-        title: `${query} - Outro exemplo`,
-        price: 1499.99,
-        shipping: 15.9,
-        url: "https://mercadolivre.com.br/exemplo2",
-      },
-    ],
-    timestamp: new Date().toISOString(),
-  };
-
-  return mockResults;
-});
-
+// Iniciar servidor
 const start = async () => {
   try {
-    await server.listen({ port: PORT });
-    console.log(`Server running on port ${PORT}`);
+    const port = Number(process.env.PORT) || 3000;
+    await server.listen({ port, host: "0.0.0.0" });
+    console.log(`🚀 Server running at http://localhost:${port}`);
   } catch (err) {
-    console.error(err);
+    server.log.error(err);
     process.exit(1);
   }
 };
