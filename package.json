@@ -15,5 +15,25 @@
   "bugs": {
     "url": "https://github.com/pedrohmf12/priceWatchAPI/issues"
   },
-  "homepage": "https://github.com/pedrohmf12/priceWatchAPI#readme"
+  "homepage": "https://github.com/pedrohmf12/priceWatchAPI#readme",
+  "dependencies": {
+    "@fastify/cors": "^11.1.0",
+    "@fastify/helmet": "^13.0.2",
+    "@prisma/client": "^6.19.0",
+    "axios": "^1.13.2",
+    "bullmq": "^5.63.0",
+    "cheerio": "^1.1.2",
+    "dotenv": "^17.2.3",
+    "fastify": "^5.6.2",
+    "redis": "^5.9.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/cheerio": "^0.22.35",
+    "@types/node": "^24.10.0",
+    "nodemon": "^3.1.10",
+    "prisma": "^6.19.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
 }
