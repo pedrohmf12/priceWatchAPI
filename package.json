@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "./src/server.ts",
-  "scripts": {},
+  "scripts": {
+    "dev": "tsx watch src/server.ts"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pedrohmf12/priceWatchAPI.git"
