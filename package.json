@@ -1,0 +1,19 @@
+{
+  "name": "pricewatchapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/server.ts",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedrohmf12/priceWatchAPI.git"
+  },
+  "keywords": [],
+  "author": "Pedro Muniz",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/pedrohmf12/priceWatchAPI/issues"
+  },
+  "homepage": "https://github.com/pedrohmf12/priceWatchAPI#readme"
+}
